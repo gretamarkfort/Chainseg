@@ -1,0 +1,70 @@
+[tool.poetry]
+name = "planetai-chainseg"
+version = "1.0.0"
+description = "description"
+authors = [
+    "PLANET AI GmbH <legal@planet-ai.de>",
+]
+license = "EULA"
+readme = "README.md"
+homepage = "https://planet-ai.de/"
+
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Typing :: Typed",
+]
+
+
+[tool.poetry.dependencies]
+# dependencies that should stay fixed until manual update
+python = ">=3.10,<3.12"
+pathlib = "^1.0.1"
+opencv-python = "^4.7.0.72"
+tensorflow = "2.14.0"
+#tensorflow-macos = {version = "^2.14.0", optional = true}
+keras = ">=2.0.0, <3.0.0"
+matplotlib = "^3.7.1"
+rpyc = "^5.3.1"
+pymavlink = "^2.4.40"
+loguru = "^0.7.2"
+pysimplegui = "^5.0.4"
+python-vlc = "^3.0.20123"
+pynput = "^1.7.6"
+pandas = "^2.2.2"
+openpyxl = "^3.1.4"
+numpy = "<2.0.0"
+scipy = "^1.14.1"
+
+[tool.poetry.group.test.dependencies]
+# dependencies only used for test
+pytest = "^7.2.2"
+pytest-dependency = "^0.5.1"
+pytest-cov = "^4.0.0"
+
+[tool.poetry.group.docs.dependencies]
+# dependencies which are used to generate docs
+sphinx = "^6.1.3"
+sphinx-rtd-theme = "^1.2.0"
+sphinx-epytext = "^0.0.4"
+toml = "^0.10.2"  # required in order to read pyproject.toml to get version in docs
+myst-parser = "^1.0.0" # required to read README.md, CHANGELOG.md, and LICENSE
+sphinx-tabs = "^3.4.1"
+sphinx-copybutton = "^0.5.1"
+
+[build-system]
+requires = ["poetry-core"]
+
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+addopts = "-rA -s -v --cov-report term:skip-covered"
+
+[tool.coverage.report]
+fail_under = 50
+
+[tool.poetry.scripts]
+rov-assist = "planetai_chainseg.scripts.start:run"

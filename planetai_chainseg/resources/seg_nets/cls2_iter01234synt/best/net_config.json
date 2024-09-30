@@ -1,0 +1,50 @@
+{
+  "idModel": "cls2_iter0123synt_tfaip_scenario_img.seg.scenario:ScenarioSegOTCChain_2023-03-20",
+  "idServe": "serve",
+  "inNodes": {
+    "img": {
+      "shape": [
+        "?",
+        "?",
+        "?",
+        "3"
+      ],
+      "dtype": "float32",
+      "nodeServe": "serving_default_img:0"
+    },
+    "img_shape": {
+      "shape": [
+        "?",
+        "3"
+      ],
+      "dtype": "int32",
+      "nodeServe": "serving_default_img_shape:0"
+    }
+  },
+  "outNodes": {
+    "seg_cls_confidence": {
+      "shape": [
+        "?",
+        "?",
+        "?",
+        "2"
+      ],
+      "dtype": "float32",
+      "nodeServe": "StatefulPartitionedCall:0"
+    },
+    "seg_cls_logits": {
+      "shape": [
+        "?",
+        "?",
+        "?",
+        "2"
+      ],
+      "dtype": "float32",
+      "nodeServe": "StatefulPartitionedCall:1"
+    }
+  },
+  "tfVersion": "2.9.3",
+  "tfaipCommitHash": "a1cc80a78062a8a3b75bc00872ec313bad059503",
+  "tfaipVersion": "1.2.6",
+  "__cls__": "tfaip.scenario.scenariobaseparams:NetConfigParamsBase"
+}
